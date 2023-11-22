@@ -1,0 +1,12 @@
+Obviously most of the routes will later be protected by an auth system. Since i only need a poc it's fine for now.
+
+Routes required to make this prototype kind of working: 
+- /api/coleweight/find?username=string : returns user object from model (with their leaderboard position)
+- /api/coleweight/rankings?start=int&end=int&detailed=bool : Returns an array of users, with or without informations about the points
+- /api/cwinfo : Returns a json file with the differents calculations for coleweight (might be useless)
+- /api/malicious/add?username=string&reason=string : Returns a validation message 
+- /api/malicious/findall : Returns a list of users tagged as malicious
+- /api/malicious/find?username=string : Return a single user if they are malicious
+- /api/malicious/remove?username=string : Remove an user from the malicious db 
+- /api/malicious/clear?username=string : Clear all past history of behavior.
+

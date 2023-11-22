@@ -1,0 +1,89 @@
+{
+  "mining_xp" : 1200000,
+  "mithril_powder": 160000,
+  "gemstone_powder": 160000,
+  "nucleus_runs" : 1.5,
+  "collections" : [
+    {
+      "name" : "MITHRIL_ORE", "cost" : 350000
+
+    },
+    {
+      "name": "GEMSTONE_COLLECTION", "cost": 1500000
+    },
+    {
+      "name": "GOLD_INGOT", "cost": 700000
+    },
+    {
+      "name": "NETHERRACK", "cost": 45000
+    },
+
+    {
+      "name" : "DIAMOND", "cost": 700000 
+    },
+    {
+      "name" : "ICE", "cost" : 1000000
+    },
+    {
+      "name" : "REDSTONE", "cost" : 1500000 
+    },
+    {
+      "name" : "INK_SACK:4", "cost" : 1000000 
+    },
+    {
+      "name": "SULPHUR", "cost": 9999999999
+    },
+    {
+      "name": "COAL", "cost": 500000
+    },
+    {
+      "name" : "EMERALD", "cost" : 150000
+    },
+    {
+      "name" : "ENDER_STONE", "cost": 75000
+    },
+    {
+      "name" :"GLOWSTONE_DUST", "cost": 400000
+    },
+    {
+      "name": "GRAVEL", "cost" : 200000
+    },
+    {
+      "name": "IRON_INGOT", "cost": 500000
+    },
+    {
+      "name" : "MYCEL" , "cost": 300000
+    },
+    {
+      "name": "QUARTZ", "cost": 300000
+    },
+    {
+      "name" : "OBSIDIAN", "cost": 180000
+    },
+    {
+      "name" : "SAND:1", "cost" : 150000
+    },
+    {
+      "name" : "SAND", "cost" : 150000
+    },
+    {
+      "name" : "COBBLESTONE", "cost": 1000000
+    },
+    {
+      "name" : "HARD_STONE",  "cost": 275000
+    },
+    {
+      "name" : "METAL_HEART", "cost" : 40
+    }
+  ],
+  "kills": [
+    {
+      "name" : "scatha_10", "cost": 3
+    },
+    {
+      "name": "worm_5", "cost" : 12
+    }
+  ]
+
+
+}

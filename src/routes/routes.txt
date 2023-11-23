@@ -9,4 +9,9 @@ Routes required to make this prototype kind of working:
 - /api/malicious/find?username=string : Return a single user if they are malicious
 - /api/malicious/remove?username=string : Remove an user from the malicious db 
 - /api/malicious/clear?username=string : Clear all past history of behavior.
-
+- /api/wr/enable?username=string&collection=string : Simply change flags for the cron
+- /api/wr/disable?username=string : Simply change flags for the cron
+- /api/wr/tracked : Return list of tracked players
+- /api/wr/find?current=bool : Return list of wr, active ones or not depending on query
+- /api/wr/findone?collection=string&current=bool : Return list or object of wr for a collection depending on query
+- /api/wr/holders : Return list of wr holders for each collection

@@ -5,8 +5,8 @@ const wrSchema = new mongoose.Schema({
   uuid : String,
   collection : String,
   collection_values : [{collection_time : Date, amount : Number}], //30Min array of collection values. 
-  currentWR : {Type : Boolean, default : true}
+  currentWR : {type : Boolean, default : true}
 })
 
-const wrModel = new mongoose.Model('wr', wrSchema);
+const wrModel = new mongoose.model('wr', wrSchema);
 module.exports = wrModel;

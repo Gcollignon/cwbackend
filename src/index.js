@@ -11,7 +11,7 @@ app.use('/api/coleweight/', coleweight_router)
 app.use('/dev/', dev_router);
 app.use('/api/malicious/', malicious_router);
 app.use('/api/wr/', wr_router);
-app.listen(3000, async () => {
+app.listen(8080, async () => {
   console.log('Server is running.')
   await mongoose.connect(config.mongodb);
 

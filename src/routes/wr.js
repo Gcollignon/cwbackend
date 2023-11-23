@@ -59,5 +59,19 @@ router.get('/disable', async function(req, res){
 })
 
 
+router.get('/tracked', async function(req, res) {
+  try {
+
+  return await playerModel.find({wr_tracking : true})
+  }
+  catch(e){
+    res.status(500)
+    res.json({error : e.message})
+    return
+  }
+})
+
+router.get('/holders', async function(req, res))
+
 module.exports = router;
 

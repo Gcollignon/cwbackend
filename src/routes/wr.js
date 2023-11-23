@@ -31,7 +31,7 @@ router.get('/enable', async function(req, res){
     res.json({error : e.message})
     return
   }
-  
+
 })
 
 router.get('/disable', async function(req, res){
@@ -62,7 +62,9 @@ router.get('/disable', async function(req, res){
 router.get('/tracked', async function(req, res) {
   try {
 
-  return await playerModel.find({wr_tracking : true})
+    let players = await playerModel.find({wr_tracking : true})
+    res.status(200);
+    res.json(players)
   }
   catch(e){
     res.status(500)
@@ -71,7 +73,32 @@ router.get('/tracked', async function(req, res) {
   }
 })
 
-router.get('/holders', async function(req, res))
+router.get('/find', async function(req, res){
+  try {
+
+
+    if (req.query.current && req.query.current === true){
+      let world_records =  await wrModel.find({currentWR : true})
+      res.status(200);
+      res.json(world_records);
+    }
+    else {
+      let world_records = await wrModel.find();
+      res.status(200);
+      res.json(world_records);
+    }
+  }
+  catch(e){
+    res.status(500)
+    res.json({error : e.message})
+    return
+  }
+})
+
+router.get('/holders', async function(req, res){
+  let world_records = await wrModel.find({currentWR : true})
+
+})
 
 module.exports = router;
 

@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+//This schema holds wr. Not player data about wr mode.
 const wrSchema = new mongoose.Schema({
   username : String,
   uuid : String,

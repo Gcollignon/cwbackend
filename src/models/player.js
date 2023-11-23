@@ -30,6 +30,8 @@ const PlayerSchema = new mongoose.Schema({
     report_date : Date,
     reason : String
   }],
+  wr_tracking : {type :Boolean, default : false },
+  wr_tracking_info : {collection : {type : String}, history : [{historic_date : Date, amount : Number}]},
   wrs : [String] //ObjectIds of wrs
 
 })

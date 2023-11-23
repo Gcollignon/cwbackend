@@ -104,17 +104,17 @@ router.get('/findone', async function(req, res){
   }
   try {
 
-  
-  if (req.query.history && req.query.history == true){
-    //We need to provide all historical world records for this collection
-    let world_records = await wrModel.find({collection : req.query.collection})
-    res.status(200);
-    res.json(world_records);
-  }else {
-    let world_record = await wrModel.findOne({collection : req.query.collection, currentWR : true})
-    res.status(200);
-    res.json(world_record);
-  }
+
+    if (req.query.history && req.query.history == true){
+      //We need to provide all historical world records for this collection
+      let world_records = await wrModel.find({collection : req.query.collection})
+      res.status(200);
+      res.json(world_records);
+    }else {
+      let world_record = await wrModel.findOne({collection : req.query.collection, currentWR : true})
+      res.status(200);
+      res.json(world_record);
+    }
   }
   catch(e){
     res.status(500)
@@ -124,6 +124,14 @@ router.get('/findone', async function(req, res){
 
 router.get('/holders', async function(req, res){
   let world_records = await wrModel.find({currentWR : true})
+  let holders = [] //For now I allow duplicate but can be changed if needed
+  for (let wr of world_records){
+    //TODO: Optimize this thing in case we keep the duplicate format. Can use find instead with a good query
+    let player = await wrModel.findOne({username : wr.username})
+    holders.push(player);
+  }
+  res.status(200);
+  res.json(holders);
 
 })
 

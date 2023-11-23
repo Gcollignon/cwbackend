@@ -95,6 +95,33 @@ router.get('/find', async function(req, res){
   }
 })
 
+//Maybe splitting routes is good since we provide an array or an object depending on query.
+router.get('/findone', async function(req, res){
+  if (!req.query.collection){
+    res.status(403)
+    res.json({error : "No collection provided"})
+    return;
+  }
+  try {
+
+  
+  if (req.query.history && req.query.history == true){
+    //We need to provide all historical world records for this collection
+    let world_records = await wrModel.find({collection : req.query.collection})
+    res.status(200);
+    res.json(world_records);
+  }else {
+    let world_record = await wrModel.findOne({collection : req.query.collection, currentWR : true})
+    res.status(200);
+    res.json(world_record);
+  }
+  }
+  catch(e){
+    res.status(500)
+    res.json({error : e.message})
+  }
+})
+
 router.get('/holders', async function(req, res){
   let world_records = await wrModel.find({currentWR : true})
 

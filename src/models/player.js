@@ -29,7 +29,8 @@ const PlayerSchema = new mongoose.Schema({
   bad_behavior_history : [{
     report_date : Date,
     reason : String
-  }]
+  }],
+  wrs : [String] //ObjectIds of wrs
 
 })
 

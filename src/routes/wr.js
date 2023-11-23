@@ -21,10 +21,9 @@ router.get('/enable', async function(req, res){
     let player = await playerModel.findOne({username : req.query.username})
     player.wr_tracking = true
     player.wr_tracking_info.collection = req.query.collection; //TODO: Make a lookup table to avoid using skyblock API names (they sucks);
+    await player.save();
     res.status(200);
     res.json({message : "done", player : player})
-
-
 
   }
   catch(e){
@@ -33,13 +32,32 @@ router.get('/enable', async function(req, res){
     return
   }
   
-
-
-
-
-
-
 })
+
+router.get('/disable', async function(req, res){
+  if (!req.query.username) {
+    res.status(403)
+    res.json({error : 'No username provided'})
+    return
+  }
+
+  try {
+    let player = await playerModel.findOne({username : req.query.username})
+    player.wr_tracking = false;
+    player.wr_tracking_info.collection = undefined
+    player.wr_tracking_info.history = []
+    await player.save();
+    res.status(200);
+    res.json({message: 'done', player : player})
+
+  }
+  catch(e){
+    res.status(500)
+    res.json({error: e.message})
+    return
+  }
+})
+
 
 module.exports = router;
 
